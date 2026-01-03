@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Raya Muya Ramadani 💌</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Amplop */
+.envelope {
+  width: 220px;
+  height: 140px;
+  background: #fff;
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f5b7c7;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.6s;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.hint {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Surat */
+.letter {
+  position: absolute;
+  width: 340px;
+  max-height: 75vh;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  transform: scale(0);
+  transition: transform 0.6s;
+  overflow-y: auto;
+}
+
+.letter.show {
+  transform: scale(1);
+}
+
+h2 {
+  text-align: center;
+  color: #e75480;
+}
+
+p {
+  line-height: 1.6;
+  white-space: pre-line;
+  color: #444;
+}
+
+/* Question */
+.question {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #e75480;
+  color: white;
+}
+
+#no {
+  background: #ccc;
+  position: absolute;
+}
+
+.result {
+  text-align: center;
+  margin-top: 15px;
+  color: #e75480;
+  font-weight: bold;
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openLetter()">
+  <div class="flap"></div>
+  <div class="hint">Klik amplop 💌</div>
+</div>
+
+<div class="letter" id="letter">
+<h2>Untuk Raya Muya Ramadani 🤍</h2>
+
+<p>
+Sayangku,  
+terima kasih karena telah memilih bertahan,  
+menerima aku dengan segala kurang dan celah yang kupunya.  
+Kehadiranmu adalah rumah  
+di saat hidupku belum sepenuhnya utuh.
+
+Maaf jika aku sering tak peka,  
+tak selalu mengerti bahasa hatimu.  
+Aku belajar perlahan, meski sering salah,  
+meski terkadang justru membuatmu lelah.  
+Namun kamu tetap di sini—  
+dan itu cukup untuk membuatku bersyukur.
+
+Terima kasih, perempuan kuatku.  
+Ingat mimpi kita:  
+rumah penuh tawa, tanpa luka,  
+tumbuh dan sukses bersama.
+
+I Love You, Raya 🤍
+</p>
+
+<div class="question">
+  <p><b>Kamu sayang aku gak?</b></p>
+  <button id="yes" onclick="loveAnswer()">Sayang 💕</button>
+  <button id="no" onmouseover="moveButton()">Gak 😝</button>
+</div>
+
+<div class="result" id="result">
+  Aku tau kok 😘 aku juga sayang kamu selamanya 🤍
+</div>
+
+</div>
+
+<script>
+function openLetter() {
+  document.querySelector('.envelope').style.display = 'none';
+  document.getElementById('letter').classList.add('show');
+}
+
+function moveButton() {
+  const noBtn = document.getElementById('no');
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + 'px';
+  noBtn.style.top = y + 'px';
+}
+
+function loveAnswer() {
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
